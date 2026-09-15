@@ -254,6 +254,21 @@ body {
   color: var(--gray-400);
 }
 
+.guide-figure {
+  padding: 0 0 14px 40px;
+}
+
+.guide-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid var(--gray-200);
+  background: var(--gray-50);
+}
+
 /* —— 验车进度 —— */
 .progress {
   position: sticky;

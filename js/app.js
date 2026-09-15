@@ -9,8 +9,20 @@
       items: [
         { id: "paint", text: "车漆", hint: "检查漆面有无明显瑕疵" },
         { id: "hub", text: "轮毂", hint: "检查轮毂外观是否完好" },
-        { id: "tire", text: "轮胎", hint: "检查轮胎外观是否正常" },
-        { id: "glass", text: "玻璃", hint: "检查玻璃有无破损" },
+        {
+          id: "tire",
+          text: "轮胎",
+          hint: "轮胎生产日期：轮胎的外侧找到四个数字，前两位代表的是生产周，后两位代表的是生产年份。",
+          image: "images/tire-date.jpg",
+          imageAlt: "轮胎外侧四位数字示意",
+        },
+        {
+          id: "glass",
+          text: "玻璃",
+          hint: "玻璃生产日期：一般位于玻璃的左下角或右下角，数字+圆点的形式。圆点在数字前方为上半年，用7减去圆点数即可；圆点在数字后方为下半年，用13减去圆点数即可。",
+          image: "images/glass-date.jpg",
+          imageAlt: "玻璃边角数字与圆点示意",
+        },
       ],
     },
     {
@@ -19,7 +31,7 @@
         { id: "seat", text: "座椅皮面", hint: "检查座椅有无破损、污渍" },
         { id: "screen", text: "屏幕", hint: "检查有无划痕" },
         { id: "console", text: "中控台饰板", hint: "检查饰板外观是否完好" },
-        { id: "audio", text: "音响", hint: "确认音响工作正常（可在屏幕上打开在云听广播测试）" },
+        { id: "audio", text: "音响", hint: "确认音响工作正常（可在屏幕上打开“云听广播”测试）" },
         { id: "ac", text: "空调", hint: "确认空调出风正常" },
       ],
     },
@@ -137,6 +149,18 @@
       label.appendChild(box);
       label.appendChild(text);
       li.appendChild(label);
+
+      if (item.image) {
+        var figure = document.createElement("div");
+        figure.className = "guide-figure";
+        var img = document.createElement("img");
+        img.className = "guide-img";
+        img.src = item.image;
+        img.alt = item.imageAlt || "";
+        figure.appendChild(img);
+        li.appendChild(figure);
+      }
+
       list.appendChild(li);
     });
   }
